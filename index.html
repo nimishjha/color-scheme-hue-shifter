@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Color hue shifter</title>
+<style type="text/css">
+body { margin: 0; padding: 10px; background: #222; color: #AAA; font-family: helvetica, arial, sans-serif; }
+h1, h2, h3, h4, h5, h6 { color: #FFF;  }
+.container { max-width: 1200px; margin: 0 auto;}
+.textarea { width: 100%; height: 20vh; background: #181818; color: #FFF; border: 0; }
+.colorDiv { width: 50px; height: 50px; float: left; margin: 0 10px 10px 0; }
+button { border: 0; outline: 0; padding: 1rem 2rem; font-size: 24px; display: block; background: #444; color: #FFF; }
+.wrapper { display: flex; flex-basis: 1000px; flex-grow: 1; }
+.wrapperLeft { display: flex; flex-grow: 1; flex-basis: 500px; }
+.wrapperRight { display: flex; flex-grow: 1; flex-basis: 500px; }
+.separator { display: flex; flex-basis: 10px; flex-grow: 0; }
+#colorBlocks { padding: 10px 0 0 0;  }
+</style>
+</head>
+<body>
+
+<div class="container">
+	<h1>Color hue shifter</h1>
+	<p>If you've ever wished what your code editor's color scheme would look like if you could just shift all the colors a bit, this utility might be useful.</p>
+	<p>Paste a theme (like a Sublime Text theme) into the input textarea, then use the left and right arrow keys to shift the hues of all the colors. Grab the resulting theme from the output textarea.</p>
+	<p>Colors need to be in six-digit hex format preceded by a hash (#RRGGBB).</p>
+
+	<div class="wrapper">
+		<div class="wrapperLeft">
+			<h2>Input</h2>
+		</div><!-- end .wrapperLeft -->
+		<div class="separator">
+		</div><!-- end .separator -->
+		<div class="wrapperRight">
+			<h2>Output</h2>
+		</div><!-- end .wrapperRight -->
+	</div><!-- end .wrapper -->
+	<div class="wrapper">
+		<div class="wrapperLeft">
+			<textarea id="input" class="textarea">
+			&lt;dict&gt;
+				&lt;key&gt;name&lt;/key&gt;&lt;string&gt;Operators, Brackets&lt;/string&gt;
+				&lt;key&gt;scope&lt;/key&gt;&lt;string&gt;keyword.operator.arithmetic, punctuation.definition&lt;/string&gt;
+				&lt;key&gt;settings&lt;/key&gt;&lt;dict&gt;&lt;key&gt;foreground&lt;/key&gt;&lt;string&gt;#0099FF&lt;/string&gt;&lt;/dict&gt;
+			&lt;/dict&gt;
+			&lt;dict&gt;
+				&lt;key&gt;name&lt;/key&gt;&lt;string&gt;Square brackets&lt;/string&gt;
+				&lt;key&gt;scope&lt;/key&gt;&lt;string&gt;punctuation.definition.brackets&lt;/string&gt;
+				&lt;key&gt;settings&lt;/key&gt;&lt;dict&gt;&lt;key&gt;foreground&lt;/key&gt;&lt;string&gt;#336699&lt;/string&gt;&lt;/dict&gt;
+			&lt;/dict&gt;
+			</textarea>
+		</div><!-- end .wrapperLeft -->
+		<div class="separator">
+		</div><!-- end .separator -->
+		<div class="wrapperRight">
+			<textarea id="output" class="textarea"></textarea>
+		</div><!-- end .wrapperRight -->
+	</div><!-- end .wrapper -->
+
+	<h2>Press the left or right arrow keys</h2>
+
+	<div id="colorBlocks">
+	</div><!-- end #colorBlocks -->
+</div><!-- end .container -->
+
+
+<script src="js/shiftHue.js">
+</script>
+
+</body>
+</html>
